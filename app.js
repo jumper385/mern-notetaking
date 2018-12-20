@@ -3,12 +3,27 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const mongoose = require('mongoose')
 
 const indexRouter = require('./routes/index');
 const roomRouter = require('./routes/room');
 const profileRouter = require('./routes/profile')
 
 const app = express();
+
+// mongoose setup
+const mongoURL = 'mongodb://localhost/note-taking'
+mongoose.connect(mongoURL)
+mongoose.connection.on('connected', () => {
+  console.log(`successful connection to ${mongoURL}`)
+})
+mongoose.connection.on('error', error => {
+  console.log(`error connecting to database`)
+  console.log(error)
+})
+mongoose.connection.on('disconnected', error => {
+  console.log(`successful disconnection from database`)
+})
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
