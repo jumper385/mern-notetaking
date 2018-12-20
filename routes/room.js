@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-/* GET users listing. */
 router.get('/', (req, res, next) => {
   res.json({ message: 'GET all rooms..' })
 })
@@ -23,15 +22,15 @@ router.post('/:roomID', (req, res, next) => {
 })
 
 router.get('/:roomID/note/:noteID', (req, res, next) => {
-  res.json({message: `GET a note of id '${req.params.noteID}' in the room of id '${req.params.roomID}'`})
+  res.json({ message: `GET a note of id '${req.params.noteID}' in the room of id '${req.params.roomID}'` })
 })
 
 router.patch('/:roomID/note/:noteID', (req, res, next) => {
-  res.json({message: `PATCH a note of id '${req.params.noteID}' in the room of id '${req.params.roomID}'`})
+  res.json({ message: `PATCH a note of id '${req.params.noteID}' in the room of id '${req.params.roomID}'` })
 })
 
 router.delete('/:roomID/note/:noteID', (req, res, next) => {
-  res.json({message: `DELETE a note of id '${req.params.noteID}' in the room of id '${req.params.roomID}'`})
+  res.json({ message: `DELETE a note of id '${req.params.noteID}' in the room of id '${req.params.roomID}'` })
 })
 
 module.exports = router;
