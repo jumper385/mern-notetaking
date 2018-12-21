@@ -13,7 +13,7 @@ const app = express();
 
 // mongoose setup
 const mongoURL = 'mongodb://localhost/note-taking'
-mongoose.connect(mongoURL)
+mongoose.connect(mongoURL, { useNewUrlParser: true })
 mongoose.connection.on('connected', () => {
   console.log(`successful connection to ${mongoURL}`)
 })
