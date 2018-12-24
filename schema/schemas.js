@@ -6,8 +6,7 @@ const RoomSchema = new Schema({
     name: { type: String, required: true },
     admins: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     date_created: { type: Date, required: true, default: new Date() },
-    last_updated: { type: Date, required: true, default: new Date() },
-    notes: [{ type: Schema.Types.ObjectId, ref: 'Note' }]
+    last_updated: { type: Date, required: true, default: new Date() }
 })
 
 const NoteSchema = new Schema({
@@ -16,7 +15,7 @@ const NoteSchema = new Schema({
     date_created: { type: Date, required: true, default: new Date() },
     last_updated: { type: Date, required: true, default: new Date() },
     related_room: { type: Schema.Types.ObjectId, required: true, ref: 'Room' },
-    creator: { type: Schema.Types.ObjectId, required: true, ref: 'User' },
+    creator: { type: Schema.Types.ObjectId, ref: 'User' },
     content: { type: String }
 })
 
